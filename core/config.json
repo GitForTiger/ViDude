@@ -1,0 +1,5 @@
+{
+    "target_language": "hinglish",
+    "whisper_model_size": "small",
+    "sarvam_model": "saaras:v2.5"
+}

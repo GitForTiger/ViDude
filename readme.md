@@ -172,15 +172,8 @@ Contributions are welcome. Please open an issue to discuss significant changes b
 
 ---
 
-## License
-
-Specify a license (e.g., MIT) by adding a `LICENSE` file to the repository.
-
----
-
 ## Author
 
 **GitForTiger : APRATIM DUBEY**
 
 [GitHub](https://github.com/GitForTiger) · [Repository](https://github.com/GitForTiger/ViDude)
-```` `

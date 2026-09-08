@@ -52,23 +52,24 @@ By intelligently routing English and Hinglish audio to specialized models (Whisp
 
 ## Project Structure
 
+````
 ViDude/
-├── app.py # Main Streamlit application
-├── main.py # CLI / backend entry point
-├── requirements.txt # Python dependencies
-├── test.py # Test suite
-├── core/ # Core AI and processing modules
-│ ├── RAG_Engine.py # Retrieval-Augmented Generation logic
-│ ├── config.json # Engine and API configurations
-│ ├── extractor.py # Media downloading and chunking
-│ ├── sarvamEngine.py # Sarvam AI transcription integration
-│ ├── whisperEngine.py # Whisper AI transcription integration
-│ ├── transcriberController.py # Routing logic for audio time-slices
-│ ├── summarizer.py # LLM-based summary and extraction logic
-│ └── vectorStore.py # ChromaDB embedding management
-└── utils/ # Helper functions
-└── audioProcessor.py # Audio formatting, conversion, and cleaning
-
+├── app.py                        # Main Streamlit application
+├── main.py                       # CLI / backend entry point
+├── requirements.txt              # Python dependencies
+├── test.py                       # Test suite
+├── core/                         # Core AI and processing modules
+│   ├── RAG_Engine.py             # Retrieval-Augmented Generation logic
+│   ├── config.json               # Engine and API configurations
+│   ├── extractor.py              # Media downloading and chunking
+│   ├── sarvamEngine.py           # Sarvam AI transcription integration
+│   ├── whisperEngine.py          # Whisper AI transcription integration
+│   ├── transcriberController.py  # Routing logic for audio time-slices
+│   ├── summarizer.py             # LLM-based summary and extraction logic
+│   └── vectorStore.py            # ChromaDB embedding management
+└── utils/                        # Helper functions
+    └── audioProcessor.py         # Audio formatting, conversion, and cleaning
+````
 
 ---
 
@@ -82,41 +83,39 @@ ViDude/
   - Linux: `sudo apt update && sudo apt install ffmpeg`
 
 ### 2. Clone the repository
-```bash
+````bash
 git clone https://github.com/GitForTiger/ViDude.git
 cd ViDude
-```
+````
 
 ### 3. Create a virtual environment
-
-```bash
+````bash
 python -m venv venv
 source venv/bin/activate   # On Windows: venv\Scripts\activate
-```
+````
 
 ### 4. Install dependencies
-
-```bash
+````bash
 pip install -r requirements.txt
-```
+````
 
 ### 5. Configure environment variables
 
 Create a `.env` file in the project root:
 
-```env
+````env
 OPENAI_API_KEY=your_openai_api_key
 SARVAM_API_KEY=your_sarvam_api_key
-```
+````
 
 ---
 
 ## Usage
 
 1. **Launch the interface**
-```bash
+````bash
    streamlit run app.py
-```
+````
 2. **Input media** — provide a video URL or upload a media file directly in the Streamlit UI.
 3. **Process** — ViDude extracts the audio, routes it through the Whisper/Sarvam time-slicing engine, and generates embeddings.
 4. **Interact** — view the generated title, summary, and action items, or use the chat interface to ask questions about the video content.
@@ -125,39 +124,40 @@ SARVAM_API_KEY=your_sarvam_api_key
 
 ## Architecture Flow
 
+````
 Video Input (URL/File)
-│
-▼
+        │
+        ▼
 Media Extraction (yt-dlp)
-│
-▼
+        │
+        ▼
 Audio Processing & Time-Slicing (pydub)
-│
-├─────────────────────────────┐
-▼ ▼
-Whisper AI (English) Sarvam AI (Hinglish)
-│ │
-└──────────────┬───────────────┘
-▼
-Unified Transcript
-│
-┌───────────────┼────────────────┐
-▼ ▼ ▼
-Summarization Extraction ChromaDB
-(Titles, Actions, (Decisions, (Embeddings)
-Summaries) Questions) │
-▼
-RAG Chat Interface
-
+        │
+        ├─────────────────────────────┐
+        ▼                              ▼
+Whisper AI (English)          Sarvam AI (Hinglish)
+        │                              │
+        └──────────────┬───────────────┘
+                        ▼
+              Unified Transcript
+                        │
+        ┌───────────────┼────────────────┐
+        ▼                ▼                ▼
+  Summarization      Extraction       ChromaDB
+(Titles, Actions,   (Decisions,      (Embeddings)
+   Summaries)        Questions)            │
+                                            ▼
+                                  RAG Chat Interface
+````
 
 ---
 
 ## Roadmap
 
-* [ ] Add support for additional Indian languages beyond Hinglish
-* [ ] Batch/queue processing for multiple videos
-* [ ] Export summaries and action items to PDF/Markdown
-* [ ] Dockerized deployment
+- [ ] Add support for additional Indian languages beyond Hinglish
+- [ ] Batch/queue processing for multiple videos
+- [ ] Export summaries and action items to PDF/Markdown
+- [ ] Dockerized deployment
 
 ---
 
@@ -180,8 +180,7 @@ Specify a license (e.g., MIT) by adding a `LICENSE` file to the repository.
 
 ## Author
 
-**GitForTiger**
-Software Developer | Data Science & Machine Learning Enthusiast
-National Institute of Technology (NIT) Rourkela
+**GitForTiger : APRATIM DUBEY**
 
 [GitHub](https://github.com/GitForTiger) · [Repository](https://github.com/GitForTiger/ViDude)
+```` `
